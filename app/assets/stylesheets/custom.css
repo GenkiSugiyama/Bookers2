@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+.col-lg-12 {
+	margin-bottom: 10px;
+}
+/* プロフィール編集画面 */
+.edit_user {
+	margin-bottom: 10px;
+}
+
+.error_count {
+	color: red;
+}

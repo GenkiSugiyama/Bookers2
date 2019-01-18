@@ -5,11 +5,52 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag    'custom', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+  <header>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <p class="navbar-brand">Bookers</p>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to " Home", user_path(current_user.id), class: "Home glyphicon glyphicon-home" %></li>
+            <li><%= link_to " Users", users_path, class: "users glyphicon glyphicon-home" %></li>
+            <li><%= link_to " Books", books_path, class: "books glyphicon glyphicon-book" %></li>
+            <li><%= link_to " logout", destroy_user_session_path, class: "logout glyphicon glyphicon-log-in" %></li>
+          <% else %>
+            <li><%= link_to " Home", root_path, class: "Home glyphicon glyphicon-home" %></li>
+            <li><%= link_to "About", about_path, class: "about glyphicon glyphicon-asterisk" %></li>
+            <li><%= link_to " Sign up", new_user_registration_path, class: "sign_up glyphicon glyphicon-user" %></li>
+            <li><%= link_to " login", new_user_session_path, class: "sign_in glyphicon glyphicon-log-in" %></li>
+          <% end %>
+          </ul>
+      </div>
+    </nav>
+  </header>
     <%= yield %>
+<!-- logout時のトップ画面 -->
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4 col-xs-offset-8">
+          <p class="footer-text">CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   </body>
 </html>
