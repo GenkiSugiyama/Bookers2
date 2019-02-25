@@ -4,7 +4,7 @@
   		<div class="col-lg-4">
 			<div class="profile">
 	    	<h1>User info</h1>
-				<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-rounded pull-left profile-thumb", fallback: "no_image.jpg"%>
+				<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-rounded pull-left profile-thumb", fallback: "/images/no_image.jpg"%>
 				<table class="table">
 					<tbody>
 						<tr>
@@ -48,7 +48,7 @@
 						<% @users.each do |user| %>
 						<tbody>
 							<td>
-								<%= attachment_image_tag user, :profile_image, :fill, 30, 30, class: "img-rounded pull-left profile-thumb", fallback: "no_image.jpg", size: '30x30' %>
+								<%= attachment_image_tag user, :profile_image, :fill, 30, 30, class: "img-rounded pull-left profile-thumb", fallback: "/images/no_image.jpg", size: '30x30' %>
 
 							</td>
 							<td>

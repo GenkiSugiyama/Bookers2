@@ -2,10 +2,6 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :current_book, only: [:edit, :update]
 
-	def new
-		@book = Book.new
-	end
-
 	def create
 		@book = Book.new(book_params)
 		@book.user_id = current_user.id
@@ -61,7 +57,6 @@ class BooksController < ApplicationController
 		book = Book.find(params[:id])
 		if current_user != book.user
 			redirect_to books_path
-	end
-		
+		end
 	end
 end
